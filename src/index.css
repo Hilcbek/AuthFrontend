@@ -18,3 +18,11 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+tbody tr:nth-child(2n+1){
+  background: linear-gradient(to right, #00DBDE, #FC00FF);
+  color: white;
+}
+tbody tr:nth-child(2n){
+  background: linear-gradient(to right, #FC00FF, #00DBDE);
+  color: white;
+}

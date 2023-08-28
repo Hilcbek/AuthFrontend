@@ -15,7 +15,7 @@ const Login = () => {
         e.preventDefault()
         try {
             let {username,password} = data;
-            let res = await axios.post('/auth/login',{ username, password })
+            let res = await axios.post('/login',{ username, password })
             if(res.data){
                 toast.success('Logged In Successfully!')
                 dispatch(LOGIN({ id : res.data.data._id, username : res.data.data.username }))

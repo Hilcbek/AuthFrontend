@@ -12,7 +12,7 @@ const Register = () => {
         e.preventDefault()
         try {
             let {username,password} = data;
-            let res = await axios.post('/auth/register',{ username, password })
+            let res = await axios.post('/register',{ username, password })
             if(res.data){
                 toast.success('Registered Successfully!')
                 navigate('/login')

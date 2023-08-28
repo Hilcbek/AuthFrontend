@@ -1,10 +1,40 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { toast } from 'react-hot-toast'
 import { useSelector } from 'react-redux'
 
 const Home = () => {
-  let {username} = useSelector((state) => state.user)
+  let [data,setData] = useState([])
+  useEffect(() => {
+    let AllUsers = async () => {
+      try {
+        let res = await axios.get('/')
+        setData(res.data.data)
+      } catch (error) {
+         toast.error(error.response.data.error)
+      }
+    }
+    AllUsers()
+  },[])
   return (
-    <div className='w-full h-[80vh] flex items-center justify-center text-5xl font-Roboto'>Hello👋<span className='ml-4 font-Poppins text'>{username}</span>!</div>
+    <div className='w-10/12 mx-auto h-[80vh] flex items-start justify-start text-5xl font-Roboto'>
+      <table className='p-2 w-full mt-6'>
+        <thead className=''>
+          <tr>
+            <th className='mb-5 underline text'>Users</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            data.map((res,idx) => (
+              <tr key={idx} className='p-3 rounded-3xl'>
+                <td className='text-xl p-2'>{res.username}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
   )
 }
 
