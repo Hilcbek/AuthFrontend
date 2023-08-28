@@ -1,10 +1,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { toast } from 'react-hot-toast'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { LOGOUT } from '../../Redux/userSlice'
 
 const Home = () => {
   let [data,setData] = useState([])
+  let dispatch = useDispatch()
   useEffect(() => {
     let AllUsers = async () => {
       try {
@@ -12,6 +14,7 @@ const Home = () => {
         setData(res.data.data)
       } catch (error) {
          toast.error(error.response.data.error)
+         dispatch(LOGOUT({}))
       }
     }
     AllUsers()
