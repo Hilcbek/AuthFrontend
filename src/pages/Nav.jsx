@@ -8,7 +8,7 @@ const Nav = () => {
   let navigate = useNavigate()
   let dispatch = useDispatch()
   let Logout = () => {
-    axios.post('/auth/logout')
+    axios.post('/logout')
     dispatch(LOGOUT({}))
     navigate('/login')
   }
