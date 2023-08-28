@@ -15,7 +15,7 @@ function App() {
     <div>
       <BrowserRouter>
       <Nav />
-      <Toaster position="top-center" toastOptions={{ duration : 3000}} containerStyle={{ marginTop : 80}}  />
+      <Toaster position="top-center" toastOptions={{ duration : 3000}} containerStyle={{ marginTop : 70}}  />
         <Routes>
           <Route path="/" element={(username && reload) ? <Home /> : <Navigate to={'/login'} /> } />
           <Route path="/register" element={(username && reload) ? <Navigate to={'/'} /> : <Register />} />
