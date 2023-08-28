@@ -7,7 +7,7 @@ import Nav from "./pages/Nav"
 import axios from 'axios'
 import { Toaster } from 'react-hot-toast'
 import { useSelector } from "react-redux"
-axios.defaults.baseURL = 'https://auth-jkam.onrender.com/api'
+axios.defaults.baseURL = 'https://auth-jkam.onrender.com/api/auth'
 axios.defaults.withCredentials = true
 function App() {
     let {username,reload} = useSelector((state) => state.user)
